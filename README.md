@@ -18,3 +18,7 @@ Entre outros pacotes de dependências.
 
 ### Template
 🖥️ Site com base no template gratuito fornecido pela [Creative-Tim](https://www.creative-tim.com/product/vue-material-kit)
+
+### Secult
+![logotipo](https://github.com/secultce/site-editais/assets/7341117/6a853f8c-e29e-4228-a818-43b4277792b5)
+
