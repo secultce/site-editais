@@ -12,7 +12,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <DefaultCounterCard
                 color="success"
                 title="Inscrições aberta"
-                description="Todos editais que estão no período de inscrição"
+                description="Todos editais que estão no período de inscrição."
                 :count="70"              
                 :duration="3000"
                 divider="vertical"
@@ -22,7 +22,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <DefaultCounterCard
                 color="success"
                 title="Conhecimento Público"
-                description="Todos editais que ainda não iniciaram seu período de inscrição"
+                description="Todos editais que ainda não iniciaram seu período de inscrição."
                 :count="15"
                 :duration="3000"
                 divider="vertical"
@@ -32,7 +32,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <DefaultCounterCard
                 color="success"
                 title="Processo de seleção"
-                description="Todos editais que o período de inscrição foi encerrado mais ainda está em processo de publicação"
+                description="Todos editais que o período de inscrição foi encerrado mais ainda está em processo de publicação."
                 :count="4"
                 :duration="3000"
                 divider="vertical"
@@ -42,8 +42,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <DefaultCounterCard
                 color="success"
                 title="Inscrições encerradas"
-                description="Save 3-4 weeks of work when you use our pre-made pages for
-                  your website"
+                description="Todos editais que já foram finalizado e publicado resultado."
                 :count="34"
                 :duration="3000"
               />
