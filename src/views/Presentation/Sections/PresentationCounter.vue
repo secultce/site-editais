@@ -8,37 +8,43 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
       <div class="row">
         <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3">
           <div class="row">
-            <div class="col-md-4 position-relative">
+            <div class="col-md-3 position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Coded Elements"
-                description="From buttons, to inputs, navbars, alerts or cards, you are
-                  covered"
-                :count="70"
-                suffix="+"
+                title="Inscrições aberta"
+                description="Todos editais que estão no período de inscrição"
+                :count="70"              
                 :duration="3000"
                 divider="vertical"
               />
             </div>
-            <div class="col-md-4 position-relative">
+            <div class="col-md-3 position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Design Blocks"
-                description="Mix the sections, change the colors and unleash your
-                  creativity"
+                title="Conhecimento Público"
+                description="Todos editais que ainda não iniciaram seu período de inscrição"
                 :count="15"
-                suffix="+"
                 :duration="3000"
                 divider="vertical"
               />
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3  position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Pages"
+                title="Processo de seleção"
+                description="Todos editais que o período de inscrição foi encerrado mais ainda está em processo de publicação"
+                :count="4"
+                :duration="3000"
+                divider="vertical"
+              />
+            </div>
+            <div class="col-md-3  position-relative">
+              <DefaultCounterCard
+                color="success"
+                title="Inscrições encerradas"
                 description="Save 3-4 weeks of work when you use our pre-made pages for
                   your website"
-                :count="4"
+                :count="34"
                 :duration="3000"
               />
             </div>

@@ -23,9 +23,16 @@ import ElDropdowns from "../layouts/sections/elements/dropdowns/DropdownsView.vu
 import ElProgressBars from "../layouts/sections/elements/progress-bars/ProgressBarsView.vue";
 import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
+import Equipamentos from "../views/LandingPages/Equipamentos/Equipamentos.vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: "/equipamentos",
+      name: "equipamentos",
+      component: Equipamentos,
+    },
     {
       path: "/",
       name: "presentation",
