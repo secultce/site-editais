@@ -1,5 +1,62 @@
 <script setup>
+import { onMounted, reactive } from "vue";
 import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCounterCard.vue";
+
+import helpers from "../../../helpers/helpers";
+
+const state = reactive({
+  countOpen : 0,
+  countClosed: 0,
+  countPublic: 0,
+  countProgress: 0
+})
+
+
+const getData = () => {
+  //Editais Aberto
+  var noticeOpen = helpers.getNoticeOpen();
+  noticeOpen.then(res => {
+    state.countOpen = res.length
+  })
+  .catch(err => {
+    console.log(err)
+  })
+  //Editais Encerrado
+  var countClosed = helpers.getNoticeClosed();
+  countClosed.then(res => {
+    state.countClosed = res.length
+  })
+  .catch(err => {
+    console.log(err)
+  })
+  //Editais conhecimento Publico
+  var countPublic = helpers.getNoticePublic();
+  countPublic.then(res => {
+    state.countPublic = res.length
+  })
+  .catch(err => {
+    console.log(err)
+  })
+
+  //Editais em processo
+  var countProgress = helpers.getNoticeProcess();
+  countProgress.then(res => {
+    console.log(res.length)
+    state.countProgress = res.length
+  })
+  .catch(err => {
+    console.log(err)
+  })
+
+
+}
+
+onMounted(() => {
+  getData();
+})
+
+
+
 </script>
 
 <template>
@@ -13,7 +70,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                 color="success"
                 title="Inscrições aberta"
                 description="Todos editais que estão no período de inscrição."
-                :count="70"              
+                :count="state.countOpen"
                 :duration="3000"
                 divider="vertical"
               />
@@ -23,7 +80,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                 color="success"
                 title="Conhecimento Público"
                 description="Todos editais que ainda não iniciaram seu período de inscrição."
-                :count="15"
+                :count="state.countPublic"
                 :duration="3000"
                 divider="vertical"
               />
@@ -33,7 +90,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                 color="success"
                 title="Processo de seleção"
                 description="Todos editais que o período de inscrição foi encerrado mais ainda está em processo de publicação."
-                :count="4"
+                :count="state.countProgress"
                 :duration="3000"
                 divider="vertical"
               />
@@ -43,7 +100,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
                 color="success"
                 title="Inscrições encerradas"
                 description="Todos editais que já foram finalizado e publicado resultado."
-                :count="34"
+                :count="state.countClosed"
                 :duration="3000"
               />
             </div>
