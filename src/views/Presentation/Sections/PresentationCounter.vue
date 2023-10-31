@@ -1,59 +1,23 @@
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, ref, } from "vue";
 import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCounterCard.vue";
-
+import CenteredBlogCard from "@/examples/cards/blogCards/CenteredBlogCard.vue";
 import helpers from "../../../helpers/helpers";
 
-const state = reactive({
-  countOpen : 0,
-  countClosed: 0,
-  countPublic: 0,
-  countProgress: 0
+defineProps({
+  countOpen   : Number,
+  countClosed : Number,
+  countPublic : Number,
+  countProgess: Number,
 })
 
-
-const getData = () => {
-  //Editais Aberto
-  var noticeOpen = helpers.getNoticeOpen();
-  noticeOpen.then(res => {
-    state.countOpen = res.length
-  })
-  .catch(err => {
-    console.log(err)
-  })
-  //Editais Encerrado
-  var countClosed = helpers.getNoticeClosed();
-  countClosed.then(res => {
-    state.countClosed = res.length
-  })
-  .catch(err => {
-    console.log(err)
-  })
-  //Editais conhecimento Publico
-  var countPublic = helpers.getNoticePublic();
-  countPublic.then(res => {
-    state.countPublic = res.length
-  })
-  .catch(err => {
-    console.log(err)
-  })
-
-  //Editais em processo
-  var countProgress = helpers.getNoticeProcess();
-  countProgress.then(res => {
-    console.log(res.length)
-    state.countProgress = res.length
-  })
-  .catch(err => {
-    console.log(err)
-  })
-
-
-}
-
-onMounted(() => {
-  getData();
-})
+const showCategory = (value) => {
+    let emitClosed = {
+        value: value   
+    }
+    console.log(emitClosed)
+    // emit("notice-id", emitClosed)
+  }
 
 
 
@@ -70,43 +34,104 @@ onMounted(() => {
                 color="success"
                 title="Inscrições aberta"
                 description="Todos editais que estão no período de inscrição."
-                :count="state.countOpen"
+                :count="countOpen"
                 :duration="3000"
                 divider="vertical"
               />
+             <div class="d-flex justify-content-center align-items-end">
+                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="showCategory('open')">
+                  Ver editais
+                </a>
+             </div>
             </div>
             <div class="col-md-3 position-relative">
               <DefaultCounterCard
                 color="success"
                 title="Conhecimento Público"
                 description="Todos editais que ainda não iniciaram seu período de inscrição."
-                :count="state.countPublic"
+                :count="countPublic"
                 :duration="3000"
                 divider="vertical"
               />
+              <div class="d-flex justify-content-center  align-items-end ">
+                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success"  @click="showCategory('public')">
+                  Ver editais
+                </a>
+             </div>
             </div>
             <div class="col-md-3  position-relative">
               <DefaultCounterCard
                 color="success"
                 title="Processo de seleção"
                 description="Todos editais que o período de inscrição foi encerrado mais ainda está em processo de publicação."
-                :count="state.countProgress"
+                :count="countProgess"
                 :duration="3000"
                 divider="vertical"
               />
+              <div class="d-flex justify-content-center  align-items-end">
+                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success"  @click="showCategory('progress')">
+                  Ver editais
+                </a>
+             </div>
             </div>
             <div class="col-md-3  position-relative">
               <DefaultCounterCard
                 color="success"
                 title="Inscrições encerradas"
                 description="Todos editais que já foram finalizado e publicado resultado."
-                :count="state.countClosed"
+                :count="countClosed"
                 :duration="3000"
               />
+              <div class="d-flex justify-content-center  align-items-end">
+                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="showCategory('closed')">
+                  Ver editais
+                </a>
+             </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- <section class="p-4">
+    <div class="container">
+      <div class="row">
+        <div v-for="(item, index) in state.noticeOpen" v-if="(showNoticeOpen)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
+          <div class="row-card">            
+            <div class="card">
+            <CenteredBlogCard
+              style="max-height: 700px;"
+              :image="item['@files:avatar.avatarBig'].url"
+              :title="item.name"
+              :description="item.shortDescription"
+              :href="item.singleUrl"
+            />
+              <div class="card-body text-center">
+                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
+                  Mais informação
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
 </template>
+
+<style>
+.row-card {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.0 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.card .card-body {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    padding: 1rem !important;
+}
+
+</style>
