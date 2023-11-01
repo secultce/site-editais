@@ -1,5 +1,9 @@
 <script setup>
 defineProps({
+  id: {
+    type: Number,
+    required: false,
+  },
   image: {
     type: String,
     required: true,
@@ -26,12 +30,25 @@ defineProps({
     }),
   },
 });
+
+
+const emit = defineEmits(['noticeClick'])
+
+const showDetails = (value) => {
+  let emitClosed = {
+      value: value   
+  }
+  console.log('blodCard', value)
+  emit("noticeClick", emitClosed)
+}
+
+
 </script>
 <template>
   <div class="">
     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-      <a :href="action.route" class="d-block blur-shadow-image">
-        <img :src="image" :alt="title" class="img-fluid border-radius-lg" />
+      <a :href="action.route" class="d-block blur-shadow-image image-cursor-point" @click="showDetails(id)" >
+        <img :src="image" :alt="title" class="img-fluid border-radius-lg"  style="background-color: #cccccc;"/>
       </a>
     </div>
     <div class="card-body text-center">
@@ -47,3 +64,14 @@ defineProps({
     </div>
   </div>
 </template>
+
+<style>
+.image-cursor-point {
+  cursor: pointer;
+}
+
+.image-cursor-point:hover {
+ background-color: aqua;
+}
+
+</style>
