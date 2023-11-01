@@ -70,6 +70,26 @@ const noticeProcessFunc = () => {
     showDetails.value = false
 }
 
+const renderGeneral = (notice) =>{
+  console.log({notice})
+  switch (notice.value) {
+    case 'open':
+      noticeOpenFunc()
+      break;
+    case 'public':
+      noticePublicFunc()
+      break;
+    case 'progress':
+      noticeProcessFunc()
+      break;
+    case 'closed':
+      noticeClosedFunc()
+      break;
+    
+    default:
+      break;
+  }
+}
 
 const closeAll = () => {
     showNoticeOpen.value = false
@@ -80,6 +100,7 @@ const closeAll = () => {
 
 const detailsEdit = (id) => {
   showDetails.value = true
+  state.idNotice = id
     let emitClosed = {
         id: id
     }
@@ -90,10 +111,14 @@ const detailsEdit = (id) => {
 
 const state = reactive({
   noticeOpen: [],
+  noticeClosed: [],
+  noticePublic: [],
+  noticeProgress: [],
   countOpen: 0,
   countClosed: 0,
   countPublic: 0,
-  countProgress: 0
+  countProgress: 0,
+  idNotice: 0
 })
 
 const getData = () => {
@@ -110,6 +135,7 @@ const getData = () => {
   //Editais Encerrado
   var countClosed = helpers.getNoticeClosed();
   countClosed.then(res => {
+    state.noticeClosed = res
     state.countClosed = res.length
   })
     .catch(err => {
@@ -118,6 +144,7 @@ const getData = () => {
   //Editais conhecimento Publico
   var countPublic = helpers.getNoticePublic();
   countPublic.then(res => {
+    state.noticePublic = res
     state.countPublic = res.length
   })
     .catch(err => {
@@ -128,6 +155,7 @@ const getData = () => {
   var countProgress = helpers.getNoticeProcess();
   countProgress.then(res => {
     console.log(res.length)
+    state.noticeProgress = res
     state.countProgress = res.length
   })
     .catch(err => {
@@ -183,14 +211,27 @@ onUnmounted(() => {
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
     <!-- Passando a contagem dos editais -->
     <PresentationCounter :countOpen="state.countOpen" :countClosed="state.countClosed" :countPublic="state.countPublic"
-      :countProgess="state.countProgress" />
+      :countProgess="state.countProgress" @notice="renderGeneral"/>
     <!-- Sessão para mostrar os editais -->
     <section class="p-4">
       <div class="container">
         <div class="row">
           <div v-for="(item, index) in state.noticeOpen" v-if="(showNoticeOpen)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
             <div class="row-card">
-              <div class="card">
+              <div class="card animate__animated animate__backInUp" :key="index">
+                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
+                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl" />
+                <div class="card-body text-center">
+                  <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
+                    Mais informação
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-for="(item, index) in state.noticeOpen" v-if="(showNoticeOpen)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
+            <div class="row-card">
+              <div class="card" :key="index">
                 <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
                   :title="item.name" :description="item.shortDescription" :href="item.singleUrl" />
                 <div class="card-body text-center">
@@ -205,7 +246,7 @@ onUnmounted(() => {
       </div>
     </section>
     <div v-if="(showDetails)">
-      <PresentationInformation />
+      <PresentationInformation :id="state.idNotice" />
     </div>
     <PresentationExample :data="data" />
     <PresentationPages />

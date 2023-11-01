@@ -11,12 +11,14 @@ defineProps({
   countProgess: Number,
 })
 
+const emit = defineEmits(['notice'])
+
 const showCategory = (value) => {
     let emitClosed = {
         value: value   
     }
     console.log(emitClosed)
-    // emit("notice-id", emitClosed)
+    emit("notice", emitClosed)
   }
 
 

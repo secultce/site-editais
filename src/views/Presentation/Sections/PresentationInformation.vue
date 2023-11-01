@@ -17,7 +17,7 @@ const urlApi = ref(import.meta.env.VITE_API_MAPA_URL)
 const idNotice = ref(props.id);
 const editalFind = () => {
 
-fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createTimestamp%20DESC&@select=id,singleUrl,name,subTitle,type,shortDescription,terms,project.name,project.singleUrl,%20user,%20owner.userId,owner.name,registrationFrom,registrationTo&@files=(avatar.avatarBig,downloads):url,description&@page=1&status=eq(1)&id=eq(4734)')
+fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createTimestamp%20DESC&@select=id,singleUrl,name,subTitle,type,shortDescription,terms,project.name,project.singleUrl,%20user,%20owner.userId,owner.name,registrationFrom,registrationTo&@files=(avatar.avatarBig,downloads):url,description&@page=1&status=eq(1)&id=eq('+props.id+')')
 .then(res => {
     
     return res.json()
@@ -49,9 +49,9 @@ onMounted(() => {
   <section class="my-5 py-5">
     <div class="container">
       <div class="section-title text-center position-relative pb-3 mb-5 mx-auto">
-        <h1>Editais com inscrições abertas</h1>
+        <h1>Editais com inscrições abertas </h1>
       </div>
-      <div class="row">
+      <div class="row animate__animated animate__bounceIn">
         <div class="col-md-4">
           <RotatingCard>
             <RotatingCardFront
