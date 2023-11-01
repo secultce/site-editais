@@ -75,15 +75,19 @@ const renderGeneral = (notice) =>{
   switch (notice.value) {
     case 'open':
       noticeOpenFunc()
+      state.titleNoticeSelect = 'Editais com inscrições abertas'
       break;
     case 'public':
       noticePublicFunc()
+      state.titleNoticeSelect = 'Editais com Conhecimento Público'
       break;
     case 'progress':
       noticeProcessFunc()
+      state.titleNoticeSelect = 'Editais em Processo de Seleção'
       break;
     case 'closed':
       noticeClosedFunc()
+      state.titleNoticeSelect = 'Editais com inscrições encerrada'
       break;
     
     default:
@@ -100,14 +104,15 @@ const closeAll = () => {
 
 const detailsEdit = (id) => {
   showDetails.value = true
+  state.titleNoticeSelect = '';
   state.idNotice = id
     let emitClosed = {
         id: id
     }
     closeAll()
-    console.log(emitClosed)
+    
     // emit("notice-id", emitClosed)
-  }
+}
 
 const state = reactive({
   noticeOpen: [],
@@ -118,7 +123,8 @@ const state = reactive({
   countClosed: 0,
   countPublic: 0,
   countProgress: 0,
-  idNotice: 0
+  idNotice: 0,
+  titleNoticeSelect: 'Editais com inscrições abertas'
 })
 
 const getData = () => {
@@ -154,9 +160,9 @@ const getData = () => {
   //Editais em processo
   var countProgress = helpers.getNoticeProcess();
   countProgress.then(res => {
-    console.log(res.length)
     state.noticeProgress = res
     state.countProgress = res.length
+    console.log(state.noticeProgress)
   })
     .catch(err => {
       console.log(err)
@@ -216,7 +222,37 @@ onUnmounted(() => {
     <section class="p-4">
       <div class="container">
         <div class="row">
+          <div v-if="state.titleNoticeSelect !== ''" class="section-title text-center position-relative pb-3 mb-5 mx-auto">
+            <h1>{{ state.titleNoticeSelect }}</h1>
+          </div>
           <div v-for="(item, index) in state.noticeOpen" v-if="(showNoticeOpen)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
+            <div class="row-card">
+             
+              <div class="card animate__animated animate__backInUp" :key="index">
+                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
+                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl" />
+                <div class="card-body text-center">
+                  <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
+                    Mais informação
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-for="(item, index) in state.noticePublic" v-if="(showNoticePublic)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
+            <div class="row-card">
+              <div class="card" :key="index">
+                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
+                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl" />
+                <div class="card-body text-center">
+                  <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
+                    Mais informação
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-for="(item, index) in state.noticeProgress" v-if="(showNoticeProcess)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
             <div class="row-card">
               <div class="card animate__animated animate__backInUp" :key="index">
                 <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
@@ -229,9 +265,9 @@ onUnmounted(() => {
               </div>
             </div>
           </div>
-          <div v-for="(item, index) in state.noticeOpen" v-if="(showNoticeOpen)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
+          <div v-for="(item, index) in  state.noticeClosed" v-if="(showNoticeClosed)" class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
             <div class="row-card">
-              <div class="card" :key="index">
+              <div class="card animate__animated animate__backInUp" :key="index">
                 <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
                   :title="item.name" :description="item.shortDescription" :href="item.singleUrl" />
                 <div class="card-body text-center">

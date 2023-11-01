@@ -31,7 +31,7 @@ async function getNoticeOpen()
 async function getNoticeClosed()
 {
     const period = `${'registrationTo=LTE('+moment().format('YYYY-MM-DD')+')'}` //menor que a data do dia
-    const field = '@select=id,singleUrl,name,publishedRegistrations' //campos que deseja pelo api
+    const field = '@select=id,singleUrl,name,publishedRegistrations,shortDescription' //campos que deseja pelo api
     const year = moment().format("YYYY")+'-01-01,'+moment().format("YYYY")+'-12-31' //ano inteiro, variando somente o ano
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
     const dataClosed = await fetch(
@@ -84,14 +84,14 @@ async function getNoticePublic()
 async function getNoticeProcess()
 {
     const year = moment().format("YYYY")+'-01-01,'+moment().format("YYYY")+'-12-31' //ano inteiro, variando somente o ano
-    const period = `${'registrationFrom=LTE('+moment().format('YYYY-MM-DD')+')&registrationFrom=BET('+year+')'}`;
-    const field = '@select=id,singleUrl,name,publishedRegistrations' //campos que deseja pelo api
+    const period = `${'registrationTo=LT('+moment().format('YYYY-MM-DD')+')'}`;
+    const field = '@select=id,singleUrl,name,shortDescription,publishedRegistrations' //campos que deseja pelo api
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
     const dataNotice = await fetch(
         import.meta.env.VITE_API_MAPA_URL + 
         'api/opportunity/find/?'+
         period + '&@order=createTimestamp%20DESC&'+
-        field + '&@files=(avatar.avatarBig):url,description&owner=IN('+codeAgent+')&publishedRegistrations=EQ(false)'
+        field + '&@files=(avatar.avatarBig):url,description&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')&publishedRegistrations=EQ(false)'
     )
 
 

@@ -34,8 +34,8 @@ const showCategory = (value) => {
             <div class="col-md-3 position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Inscrições aberta"
-                description="Todos editais que estão no período de inscrição."
+                title="Inscrições abertas"
+                description="Editais que estão no período de inscrição."
                 :count="countOpen"
                 :duration="3000"
                 divider="vertical"
@@ -50,7 +50,7 @@ const showCategory = (value) => {
               <DefaultCounterCard
                 color="success"
                 title="Conhecimento Público"
-                description="Todos editais que ainda não iniciaram seu período de inscrição."
+                description="Editais que ainda não iniciaram seu período de inscrição."
                 :count="countPublic"
                 :duration="3000"
                 divider="vertical"
@@ -65,7 +65,7 @@ const showCategory = (value) => {
               <DefaultCounterCard
                 color="success"
                 title="Processo de seleção"
-                description="Todos editais que o período de inscrição foi encerrado mais ainda está em processo de publicação."
+                description="Editais com inscrições encerradas e em processo de habilitação."
                 :count="countProgess"
                 :duration="3000"
                 divider="vertical"
@@ -79,8 +79,8 @@ const showCategory = (value) => {
             <div class="col-md-3  position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Inscrições encerradas"
-                description="Todos editais que já foram finalizado e publicado resultado."
+                title="Editais encerrados"
+                description="Editais com resultado publicado."
                 :count="countClosed"
                 :duration="3000"
               />
