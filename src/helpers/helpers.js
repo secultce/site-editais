@@ -93,21 +93,6 @@ async function getNoticeProcess()
         period + '&@order=createTimestamp%20DESC&'+
         field + '&@files=(avatar.avatarBig):url,description&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')&publishedRegistrations=EQ(false)'
     )
-
-
-    // const period = `${'registrationTo=LTE('+moment().format('YYYY-MM-DD')+')'}` //menor que a data do dia
-    // const field = '@select=id,singleUrl,name,publishedRegistrations' //campos que deseja pelo api
-    // const year = moment().format("YYYY")+'-01-01,'+moment().format("YYYY")+'-12-31' //ano inteiro, variando somente o ano
-    // const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
-    // const dataClosed = await fetch(
-    //     import.meta.env.VITE_API_MAPA_URL + 
-    //     'api/opportunity/find/?'+
-    //     period + '&@order=createTimestamp%20DESC&'+
-    //     field + '&@files=(avatar.avatarBig):url,description&@page=1&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')&publishedRegistrations=EQ(true)'
-    // )
-
-
-
     .then(res => {
         // console.log(res.json())
         return res.json()

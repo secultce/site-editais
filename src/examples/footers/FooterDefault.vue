@@ -1,5 +1,5 @@
 <script setup>
-import logoDark from "@/assets/img/logo-ct-dark.png";
+import logoDark from "@/assets/img/secult-escura.png";
 defineProps({
   brand: {
     type: Object,
@@ -7,7 +7,7 @@ defineProps({
     logo: String,
     route: "",
     default: () => ({
-      name: "Material Kit 2",
+      name: "Secretaria da cultura do Ceará",
       logo: logoDark,
       route: "/"
     })
@@ -169,12 +169,12 @@ defineProps({
         <div class="col-12">
           <div class="text-center">
             <p class="text-dark my-4 text-sm font-weight-normal">
-              All rights reserved. Copyright ©
+              Todos os direitos reservados. Copyright ©
               {{ new Date().getFullYear() }}
-              Material Kit by
-              <a href="https://www.creative-tim.com" target="_blank"
+              Secretaria da Cultua do Ceará
+              <!-- <a href="https://www.creative-tim.com" target="_blank"
                 >Creative Tim</a
-              >.
+              >. -->
             </p>
           </div>
         </div>
@@ -182,3 +182,10 @@ defineProps({
     </div>
   </footer>
 </template>
+
+<style>
+.footer .footer-logo {
+  max-width: 15rem !important;
+}
+
+</style>

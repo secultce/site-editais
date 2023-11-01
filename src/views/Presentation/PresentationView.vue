@@ -3,7 +3,6 @@ import { onMounted, onUnmounted, reactive, ref } from "vue";
 import helpers from "../../helpers/helpers";
 //example components
 import NavbarDefault from "../..//examples/navbars/NavbarDefault.vue";
-import DefaultNavbar from "../../examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "../../examples/footers/FooterDefault.vue";
 import Header from "../../examples/Header.vue";
 import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
@@ -197,8 +196,8 @@ onUnmounted(() => {
     <div class="page-header min-vh-75" :style="`background-image: url(${vueMkHeader})`" loading="lazy" style="">
       <div class="container">
         <div class="row">
-          <div class="col-lg-7 text-center mx-auto position-relative">
-            <!-- <h1
+          <!-- <div class="col-lg-7 text-center mx-auto position-relative">
+            <h1
               class="text-white pt-3 mt-n5 me-2"
               :style="{ display: 'inline-block ' }"
             >
@@ -207,8 +206,8 @@ onUnmounted(() => {
             <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
               Start the Development With Bootstrap 5 Design System inspired by
               Material Design.
-            </p> -->
-          </div>
+            </p>
+          </div> -->
         </div>
       </div>
     </div>
@@ -284,9 +283,9 @@ onUnmounted(() => {
     <div v-if="(showDetails)">
       <PresentationInformation :id="state.idNotice" />
     </div>
-    <PresentationExample :data="data" />
+    <!-- <PresentationExample :data="data" />
     <PresentationPages />
-    <BuiltByDevelopers />
+    <BuiltByDevelopers /> -->
 
     <div class="container">
       <div class="row">
@@ -320,7 +319,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <PresentationTestimonials />
+    <!-- <PresentationTestimonials /> -->
 
     <div class="container-fluid mt-sm-5 border-radius-xl" :style="{
       background: 'linear-gradient(195deg, rgb(66, 66, 74), rgb(25, 25, 25))'
@@ -352,7 +351,7 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="d-flex flex-column w-100 text-center p-5 mb-8">
           <h3>Available on these technologies</h3>
@@ -381,7 +380,7 @@ onUnmounted(() => {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="py-5">
       <div class="container">
         <div class="row">

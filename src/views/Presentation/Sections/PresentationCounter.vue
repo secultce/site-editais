@@ -1,8 +1,5 @@
 <script setup>
-import { onMounted, reactive, ref, } from "vue";
 import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCounterCard.vue";
-import CenteredBlogCard from "@/examples/cards/blogCards/CenteredBlogCard.vue";
-import helpers from "../../../helpers/helpers";
 
 defineProps({
   countOpen   : Number,
@@ -14,15 +11,11 @@ defineProps({
 const emit = defineEmits(['notice'])
 
 const showCategory = (value) => {
-    let emitClosed = {
-        value: value   
-    }
-    console.log(emitClosed)
-    emit("notice", emitClosed)
+  let emitClosed = {
+      value: value   
   }
-
-
-
+  emit("notice", emitClosed)
+}
 </script>
 
 <template>
