@@ -21,6 +21,7 @@ library.add(faPenToSquare,faBuildingColumns, faFolderOpen, faUserPen)
 // Nucleo Icons
 import "./assets/css/nucleo-icons.css";
 import "./assets/css/nucleo-svg.css";
+import 'animate.css';
 
 import materialKit from "./material-kit";
 
