@@ -24,7 +24,6 @@ fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createT
     return res.json()
 })
 .then(function(data) {
-  console.log(data[0])
     //
     editalData.value = data[0]
     featureCover.value = editalData.value['@files:avatar.avatarBig'].url;

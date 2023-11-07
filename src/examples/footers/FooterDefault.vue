@@ -9,7 +9,7 @@ defineProps({
     default: () => ({
       name: "Secretaria da cultura do Ceará",
       logo: logoDark,
-      route: "/"
+      route: "https://www.secult.ce.gov.br/"
     })
   },
   socials: {
@@ -19,23 +19,15 @@ defineProps({
     default: () => [
       {
         icon: '<i class="fab fa-facebook text-lg opacity-8"></i>',
-        link: "https://www.facebook.com/CreativeTim/"
+        link: "https://www.facebook.com/secultceara/"
       },
       {
-        icon: '<i class="fab fa-twitter text-lg opacity-8"></i>',
-        link: "https://twitter.com/creativetim"
-      },
-      {
-        icon: '<i class="fab fa-dribbble text-lg opacity-8"></i>',
-        link: "https://dribbble.com/creativetim"
-      },
-      {
-        icon: '<i class="fab fa-github text-lg opacity-8"></i>',
-        link: "https://github.com/creativetimofficial"
+        icon: '<i class="fab fa-instagram text-lg opacity-8"></i>',
+        link: "https://www.instagram.com/secultceara/"
       },
       {
         icon: '<i class="fab fa-youtube text-lg opacity-8"></i>',
-        link: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w"
+        link: "https://www.youtube.com/channel/UCVckZREupHqHkoS7MmxwH9w"
       }
     ]
   },
@@ -126,7 +118,7 @@ defineProps({
   <footer class="footer pt-5 mt-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 mb-4 ms-auto">
+        <div class="col-md-3 mb-4">
           <div>
             <a :href="brand.route">
               <img :src="brand.logo" class="mb-3 footer-logo" alt="main_logo" />
@@ -152,29 +144,71 @@ defineProps({
           </div>
         </div>
         <div
-          class="col-md-2 col-sm-6 col-6 mb-4"
-          v-for="{ name, items } of menus"
-          :key="name"
+          class="col-md-3 col-sm-6 col-6 mb-4"
         >
-          <h6 class="text-sm">{{ name }}</h6>
+          <h6 class="text-sm">SEDE DA SECULT</h6>
           <ul class="flex-column ms-n3 nav">
-            <li class="nav-item" v-for="item of items" :key="item.name">
-              <a class="nav-link" :href="item.href" target="_blank">
-                {{ item.name }}
+            <li class="nav-item" >
+              <a class="nav-link" >
+                RUA MAJOR FACUNDO, 500
+              </a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" >
+                CENTRO, FORTALEZA, CE
+              </a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" >
+                CEP: 60.025-100
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <div
+          class="col-md-3 col-sm-6 col-6 mb-4"
+        >
+          <h6 class="text-sm">HORÁRIO DE ATENDIMENTO</h6>
+          <ul class="flex-column ms-n3 nav">
+            <li class="nav-item" >
+              <a class="nav-link" >
+                DE SEGUNDA A SEXTA 08 ÀS 17 HORAS
+              </a>
+            </li>            
+          </ul>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-6 mb-4">
+          <h6 class="text-sm">CONTATO</h6>
+          <ul class="flex-column ms-n3 nav">
+            <li class="nav-item" >
+              <a class="nav-link" >
+                (85) 3101- 6767
+              </a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" >
+                (85) 98115-2400
+              </a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" >
+               <strong>E-MAIL:</strong> AGENDAGAB@SECULT.CE.GOV.BR
               </a>
             </li>
           </ul>
         </div>
 
+        
         <div class="col-12">
           <div class="text-center">
             <p class="text-dark my-4 text-sm font-weight-normal">
               Todos os direitos reservados. Copyright ©
               {{ new Date().getFullYear() }}
               Secretaria da Cultua do Ceará
-              <!-- <a href="https://www.creative-tim.com" target="_blank"
-                >Creative Tim</a
-              >. -->
             </p>
           </div>
         </div>

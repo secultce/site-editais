@@ -38,7 +38,6 @@ const showDetails = (value) => {
   let emitClosed = {
       value: value   
   }
-  console.log('blodCard', value)
   emit("noticeClick", emitClosed)
 }
 
@@ -53,7 +52,7 @@ const showDetails = (value) => {
     </div>
     <div class="card-body text-center">
       <h5 class="font-weight-normal">
-        <a href="javascript:;" v-if="(title.length > 37)" :title="title">{{ title.slice(0, 37) + '...' }}</a>
+        <a href="javascript:;" v-if="(title.length > 39)" :title="title">{{ title.slice(0, 39) + '...' }}</a>
         <a href="javascript:;" :title="title" v-else>{{title }}</a>
       </h5>
       <p class="mb-0" v-if="(description.length > 85)">{{ description.slice(0, 85) + '...' }}</p>
@@ -71,7 +70,7 @@ const showDetails = (value) => {
 }
 
 .image-cursor-point:hover {
- background-color: aqua;
+  margin: 10px;
 }
 
 </style>

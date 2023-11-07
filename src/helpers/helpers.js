@@ -41,7 +41,6 @@ async function getNoticeClosed()
         field + '&@files=(avatar.avatarBig):url,description&@page=1&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')&publishedRegistrations=EQ(true)'
     )
     .then(res => {
-        // console.log(res.json())
         return res.json()
     })
     .then(function(data) {
@@ -67,7 +66,6 @@ async function getNoticePublic()
         field + '&@files=(avatar.avatarBig):url,description&owner=IN('+codeAgent+')'
     )
     .then(res => {
-        // console.log(res.json())
         return res.json()
     })
     .then(function(data) {
@@ -94,7 +92,6 @@ async function getNoticeProcess()
         field + '&@files=(avatar.avatarBig):url,description&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')&publishedRegistrations=EQ(false)'
     )
     .then(res => {
-        // console.log(res.json())
         return res.json()
     })
     .then(function(data) {
