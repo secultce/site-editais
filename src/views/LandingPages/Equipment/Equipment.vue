@@ -1,8 +1,8 @@
 <script setup>
 import Header from "../../../examples/Header.vue";
 import NavbarDefault from "../../../examples/navbars/NavbarDefault.vue";
-import AboutUsOption from '../components/AboutUsOption.vue'
 
+import DefaultFooter from "../../../examples/footers/FooterDefault.vue";
 //images
 import vueMkHeader from "@/assets/img/header-ceara.png";
 import { reactive } from "vue";
@@ -104,20 +104,13 @@ const linkEquipments = [
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
-            <!-- <h1
-              class="text-white pt-3 mt-n5 me-2"
-              :style="{ display: 'inline-block ' }"
-            >
-              Material Kit 2
-            </h1>
-            <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
-              Start the Development With Bootstrap 5 Design System inspired by
-              Material Design.
-            </p> -->
           </div>
         </div>
       </div>
     </div>
+    
+  </Header>
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
     <section class="py-4">
       <div class="container">
         <div class="row">
@@ -145,7 +138,8 @@ const linkEquipments = [
         </div>
       </div>
     </section>
-  </Header>
+  </div>
+  <DefaultFooter />
 </template>
 
 
