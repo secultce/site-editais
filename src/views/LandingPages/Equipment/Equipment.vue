@@ -97,18 +97,27 @@ const linkEquipments = [
 
 <template>
   <div class="position-sticky  z-index-sticky top-0">
-    <NavbarDefault dark transparent />
+    <NavbarDefault :sticky="true"  />
   </div>
   <Header>
     <div class="page-header min-vh-75" :style="`background-image: url(${vueMkHeader})`" loading="lazy" style="">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
+            <h1
+              class="text-white pt-3 mt-n5 me-2"
+              :style="{ display: 'inline-block ' }"
+            >
+             Secretaria da Cultura do Ceará
+            </h1>
+            <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
+              A Secretaria da Cultura (Secult) tem como missão executar, superintender e coordenar as atividades de proteção 
+              do patrimônio cultural do Ceará, difusão da cultura e aprimoramento cultural do povo cearense.
+            </p>
           </div>
         </div>
       </div>
     </div>
-    
   </Header>
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
     <section class="py-4">
@@ -143,4 +152,7 @@ const linkEquipments = [
 </template>
 
 
-<style lang="scss" scoped></style>
+<style>
+/* .list-group-item:hover {} */
+
+</style>

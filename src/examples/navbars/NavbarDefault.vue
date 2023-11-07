@@ -106,14 +106,14 @@ watch(
         (props.transparent && textDark.value) || !props.transparent
           ? 'text-dark font-weight-bolder ms-sm-3'
           : 'text-white font-weight-bolder ms-sm-3'
-      ]" :to="{ name: 'presentation' }" rel="tooltip" title="Designed and Coded by Creative Tim"
+      ]" :to="{ name: 'presentation' }" rel="tooltip" title="Secretaria da Cultura do Ceará"
         data-placement="bottom">
         Secult/CE
       </RouterLink>
       <RouterLink class="navbar-brand d-block d-md-none" :class="props.transparent || props.dark
           ? 'text-white'
           : 'font-weight-bolder ms-sm-3'
-        " to="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
+        " to="/" rel="tooltip" title="Secretaria da Cultura do Ceará" data-placement="bottom">
         Secult/CE
       </RouterLink>
 
