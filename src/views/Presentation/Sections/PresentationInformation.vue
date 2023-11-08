@@ -1,5 +1,5 @@
 <script setup>
-import {ref, onMounted} from "vue"
+import {ref, onMounted, reactive} from "vue"
 import RotatingCard from "../../../examples/cards/rotatingCards/RotatingCard.vue";
 import RotatingCardFront from "../../../examples/cards/rotatingCards/RotatingCardFront.vue";
 import RotatingCardBack from "../../../examples/cards/rotatingCards/RotatingCardBack.vue";
@@ -16,6 +16,7 @@ const featureCover = ref('');
 const urlApi = ref(import.meta.env.VITE_API_MAPA_URL)
 const idNotice = ref(props.id);
 const divNotice = ref(null)
+
 //Buscando edital via api
 const editalFind = () => {
 fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createTimestamp%20DESC&@select=id,singleUrl,name,subTitle,type,shortDescription,terms,project.name,project.singleUrl,%20user,%20owner.userId,owner.name,registrationFrom,registrationTo&@files=(avatar.avatarBig,downloads):url,description&@page=1&status=eq(1)&id=eq('+props.id+')')
@@ -32,7 +33,6 @@ fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createT
     editalData.value.nameOwner = editalData.value.owner.name 
     editalData.value.idOwner = editalData.value.owner.id
     editalData.value.files = editalData.value['@files:downloads']
-
 })
 .catch(err => {
     console.log({err})

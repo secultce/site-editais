@@ -4,8 +4,8 @@ import NavbarDefault from "../../../examples/navbars/NavbarDefault.vue";
 
 import DefaultFooter from "../../../examples/footers/FooterDefault.vue";
 //images
-import vueMkHeader from "@/assets/img/header-ceara.png";
-import { reactive } from "vue";
+import vueMkHeader from "@/assets/img/secult.png";
+
 
 const linkEquipments = [
   {

@@ -876,7 +876,7 @@ watch(
           </li> -->
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a class="nav-link d-flex cursor-pointer align-items-center">
-              <font-awesome-icon icon="fa-solid fa-pen-to-square" style="color: #d6d8dc;" class="p-2" />
+              <font-awesome-icon icon="fa-solid fa-pen-to-square" style="color: #3E506E;" class="p-2" />
               <RouterLink :to="{ name: 'presentation' }" class="dropdown-item border-radius-md">
                 <span>Editais</span>
               </RouterLink>
@@ -884,7 +884,7 @@ watch(
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a class="nav-link d-flex cursor-pointer align-items-center">
-              <font-awesome-icon icon="fa-solid fa-building-columns" style="color: #d6d8dc;" class="p-2" />
+              <font-awesome-icon icon="fa-solid fa-building-columns" style="color: #3E506E;" class="p-2" />
               <RouterLink :to="{ name: 'equipamentos' }" class="dropdown-item border-radius-md">
                 <span>Equipamentos</span>
               </RouterLink>
@@ -892,7 +892,7 @@ watch(
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a class="nav-link d-flex cursor-pointer align-items-center">
-              <font-awesome-icon icon="fa-regular fa-folder-open" style="color: #d6d8dc;" class="p-2" />
+              <font-awesome-icon icon="fa-regular fa-folder-open" style="color: #3E506E;" class="p-2" />
               <RouterLink :to="{ name: 'about' }" class="dropdown-item border-radius-md">
                 <span>Serviços</span>
               </RouterLink>
@@ -900,7 +900,7 @@ watch(
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a href="cefic" class="nav-link d-flex cursor-pointer align-items-center">
-              <font-awesome-icon icon="fa-solid fa-user-pen" style="color: #d6d8dc;" class="p-2" />
+              <font-awesome-icon icon="fa-solid fa-user-pen" style="color: #3E506E;" class="p-2" />
               <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
                 <span>CEFIC</span>
               </RouterLink>

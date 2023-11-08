@@ -7,7 +7,7 @@ defineProps({
     logo: String,
     route: "",
     default: () => ({
-      name: "Secretaria da cultura do Ceará",
+      name: "Secretaria da Cultura do Ceará",
       logo: logoDark,
       route: "https://www.secult.ce.gov.br/"
     })
@@ -208,7 +208,7 @@ defineProps({
             <p class="text-dark my-4 text-sm font-weight-normal">
               Todos os direitos reservados. Copyright ©
               {{ new Date().getFullYear() }}
-              Secretaria da Cultua do Ceará
+              Secretaria da Cultura do Ceará
             </p>
           </div>
         </div>

@@ -27,6 +27,21 @@ const showCategory = (value) => {
             <div class="col-md-3 position-relative">
               <DefaultCounterCard
                 color="success"
+                title="Conhecimento público"
+                description="Editais que ainda não iniciaram seu período de inscrição."
+                :count="countPublic"
+                :duration="3000"
+                divider="vertical"
+              />
+              <div class="d-flex justify-content-center  align-items-end ">
+                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success"  @click="showCategory('public')">
+                  Ver editais
+                </a>
+             </div>              
+            </div>
+            <div class="col-md-3 position-relative">
+              <DefaultCounterCard
+                color="success"
                 title="Inscrições abertas"
                 description="Editais que estão no período de inscrição."
                 :count="countOpen"
@@ -35,21 +50,6 @@ const showCategory = (value) => {
               />
              <div class="d-flex justify-content-center align-items-end">
                 <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="showCategory('open')">
-                  Ver editais
-                </a>
-             </div>
-            </div>
-            <div class="col-md-3 position-relative">
-              <DefaultCounterCard
-                color="success"
-                title="Conhecimento Público"
-                description="Editais que ainda não iniciaram seu período de inscrição."
-                :count="countPublic"
-                :duration="3000"
-                divider="vertical"
-              />
-              <div class="d-flex justify-content-center  align-items-end ">
-                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success"  @click="showCategory('public')">
                   Ver editais
                 </a>
              </div>
@@ -72,7 +72,7 @@ const showCategory = (value) => {
             <div class="col-md-3  position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Editais encerrados"
+                title="Encerrados"
                 description="Editais com resultado publicado."
                 :count="countClosed"
                 :duration="3000"
