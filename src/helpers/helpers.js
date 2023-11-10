@@ -11,7 +11,7 @@ async function getNoticeOpen()
     const period = `${'registrationFrom=LTE('+moment().format('YYYY-MM-DD')+')&registrationTo=GTE('+moment().format('YYYY-MM-DD')+')'}`;
     const field = '@select=id,singleUrl,name,subTitle,type,shortDescription,terms';
 
-    const dataF = await fetch(urlMata + '/api/opportunity/find/?&'+period+'&@order=createTimestamp%20DESC&'+field+'&@files=(avatar.avatarBig):url&@page=1&status=eq(1)&owner=IN('+codeAgent+')')
+    const dataF = await fetch(urlMata + 'api/opportunity/find/?&'+period+'&@order=createTimestamp%20DESC&'+field+'&@files=(avatar.avatarBig):url&@page=1&status=eq(1)&owner=IN('+codeAgent+')')
     .then(res => {
         return res.json()
     })

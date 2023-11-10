@@ -24,6 +24,7 @@ import ElProgressBars from "../layouts/sections/elements/progress-bars/ProgressB
 import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
 import Equipment from "../views/LandingPages/Equipment/Equipment.vue";
+import Service from '../views/LandingPages/Service/Service.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/equipamentos",
       name: "equipamentos",
       component: Equipment,
+    },
+    {
+      path: "/servicos",
+      name: "servicos",
+      component: Service,
     },
     {
       path: "/",
