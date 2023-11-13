@@ -8,7 +8,7 @@ import vueMkHeader from "@/assets/img/site-editais.png";
 
 
 <template>
-    <div class="page-header min-vh-75" :style="`background-image: url(${vueMkHeader})`" loading="lazy" style="">
+    <div class="page-header min-vh-55" :style="`background-image: url(${vueMkHeader})`" loading="lazy" style="">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
