@@ -1,17 +1,62 @@
 <script setup>
+import {ref, onMounted, reactive} from "vue"
 import RotatingCard from "../../../examples/cards/rotatingCards/RotatingCard.vue";
 import RotatingCardFront from "../../../examples/cards/rotatingCards/RotatingCardFront.vue";
 import RotatingCardBack from "../../../examples/cards/rotatingCards/RotatingCardBack.vue";
 import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.vue";
+import moment from 'moment';
+moment.locale('pt-br');
+
+const props = defineProps({
+    id: Number
+})
+
+const editalData = ref([])
+const featureCover = ref('');
+const urlApi = ref(import.meta.env.VITE_API_MAPA_URL)
+const idNotice = ref(props.id);
+const divNotice = ref(null)
+
+//Buscando edital via api
+const editalFind = () => {
+fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createTimestamp%20DESC&@select=id,singleUrl,name,subTitle,type,shortDescription,terms,project.name,project.singleUrl,%20user,%20owner.userId,owner.name,registrationFrom,registrationTo&@files=(avatar.avatarBig,downloads):url,description&@page=1&status=eq(1)&id=eq('+props.id+')')
+.then(res => {
+    
+    return res.json()
+})
+.then(function(data) {
+    //
+    editalData.value = data[0]
+    featureCover.value = editalData.value['@files:avatar.avatarBig'].url;
+    editalData.value.registrationFrom = moment(data[0].registrationFrom.date).format('llll');
+    editalData.value.registrationTo = moment(data[0].registrationTo.date).format('llll');
+    editalData.value.nameOwner = editalData.value.owner.name 
+    editalData.value.idOwner = editalData.value.owner.id
+    editalData.value.files = editalData.value['@files:downloads']
+})
+.catch(err => {
+    console.log({err})
+})
+}
+
+onMounted(() => {
+  editalFind();
+  divNotice.value.scrollIntoView({ behavior: 'smooth' }); 
+})
+
+
 </script>
 <template>
-  <section class="my-5 py-5">
+  <section class="my-5 py-5" ref="divNotice">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto">
+        <h1>Informação do Edital </h1>
+      </div>
+      <div class="row animate__animated animate__bounceIn">
+        <div class="col-md-4">
           <RotatingCard>
             <RotatingCardFront
-              image="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+              :image="`${featureCover}`"
               icon="touch_app"
               title="Feel the <br /> Material Kit"
               description="All the Bootstrap components that you need in a development have been
@@ -20,49 +65,42 @@ import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.v
 
             <RotatingCardBack
               image="https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80"
-              title="Discover More"
-              description="You will save a lot of time going from prototyping to full-functional
-                code because all elements are implemented."
+              title="Publicado por"
+              :description="`${editalData.nameOwner}`"
               :action="[
                 {
-                  route: './/sections/page-sections/hero-sections.html',
-                  label: 'Start with Headers',
+                  route:  urlApi + 'oportunidade/' + editalData.id,
+                  label: 'Acessar Oportunidade',
                 },
               ]"
             />
           </RotatingCard>
         </div>
-        <div class="col-lg-6 ms-auto">
-          <div class="row justify-content-start">
-            <DefaultInfoCard
+        <div class="col-md-4 sm:mt-3">
+          <DefaultInfoCard
               icon="content_copy"
-              title="Full Documentation"
-              description="Built by developers for developers. Check the foundation and
-                  you will find everything inside our documentation."
+              title="Etapas de Execução"
+              :description="`${'Inscrições do período de: '+editalData.registrationFrom+' até '+editalData.registrationTo}`"
             />
             <DefaultInfoCard
               icon="flip_to_front"
-              title="Bootstrap 5 Ready"
-              description="The world’s most popular front-end open source toolkit,
-                  featuring Sass variables and mixins."
+              title="Descrição do Edital"
+              :description="`${editalData.shortDescription}`"
             />
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-12 ">
+            <h5 class="font-weight-bolder mt-3">Publicação do edital</h5>
+            <ul class="list-group">
+              <div  v-for="(element, index) in editalData.files">
+                <li :key="index" class="list-group-item ">
+                <a :href="`${element.url}`" :key="index" class="">{{ element.description }}</a>
+              </li>
+              </div>
+            
+          </ul>
           </div>
-          <div class="row justify-content-start mt-5">
-            <DefaultInfoCard
-              class="mt-3"
-              icon="price_change"
-              title="Save Time & Money"
-              description="Creating your design from scratch with dedicated designers can
-                be very expensive. Start with our Design System."
-            />
-            <DefaultInfoCard
-              class="mt-3"
-              icon="devices"
-              title="Fully Responsive"
-              description="Regardless of the screen size, the website content will
-                  naturally fit the given resolution."
-            />
-          </div>
+                
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@ defineProps({
 </script>
 <template>
   <div
-    class="front front-background"
+    class=""
     :style="{
       backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
@@ -36,12 +36,19 @@ defineProps({
       }}</i>
       <p
         v-if="label"
-        class="text-sm text-white text-uppercase font-weight-normal"
+       
       >
         {{ label }}
       </p>
-      <h3 class="text-white" v-html="title" />
-      <p class="text-white opacity-8">
+      <p
+      
+        v-if="label"
+        class=""
+      >
+        {{ label }}
+      </p>
+      <h3 style="color: transparent" v-html="title" />
+      <p style="color: transparent">
         {{ description }}
       </p>
     </div>

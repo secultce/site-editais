@@ -7,10 +7,10 @@ defineProps({
     default: () => [
       {
         icon: '<i class="fab fa-facebook text-lg opacity-8"></i>',
-        link: "https://www.facebook.com/CreativeTim/",
+        link: "https://www.facebook.com/secultceara/",
       },
       {
-        icon: '<i class="fab fa-twitter text-lg opacity-8"></i>',
+        icon: '<i class="fab fa-instagram text-lg opacity-8"></i>',
         link: "https://twitter.com/creativetim",
       },
       {

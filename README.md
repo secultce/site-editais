@@ -17,7 +17,8 @@ Entre outros pacotes de dependências.
 ### Instalação com Docker
 
 ### Template
-🖥️ Site com base no template gratuito fornecido pela [Creative-Tim](https://www.creative-tim.com/product/vue-material-kit)
+- 🖥️ Site com base no template gratuito fornecido pela [Creative-Tim](https://www.creative-tim.com/product/vue-material-kit)
+- Repositório: [Material Kit 2](https://github.com/creativetimofficial/vue-material-kit/blob/master/src/views/Presentation/PresentationView.vue)
 
 ### Secult
 ![logotipo](https://github.com/secultce/site-editais/assets/7341117/6a853f8c-e29e-4228-a818-43b4277792b5)
