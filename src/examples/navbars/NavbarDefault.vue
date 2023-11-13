@@ -901,7 +901,7 @@ watch(
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a href="cefic" class="nav-link d-flex cursor-pointer align-items-center">
               <font-awesome-icon icon="fa-solid fa-user-pen" style="color: #3E506E;" class="p-2" />
-              <RouterLink :to="{ name: 'contactus' }" class="dropdown-item border-radius-md">
+              <RouterLink :to="{ name: 'cefic' }" class="dropdown-item border-radius-md">
                 <span>CEFIC</span>
               </RouterLink>
             </a>

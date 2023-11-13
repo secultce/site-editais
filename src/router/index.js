@@ -25,6 +25,7 @@ import ElToggles from "../layouts/sections/elements/toggles/TogglesView.vue";
 import ElTypography from "../layouts/sections/elements/typography/TypographyView.vue";
 import Equipment from "../views/LandingPages/Equipment/Equipment.vue";
 import Service from '../views/LandingPages/Service/Service.vue';
+import Cefic from '../views/LandingPages/Cefic/Cefic.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: "/servicos",
       name: "servicos",
       component: Service,
+    },
+    {
+      path: "/cefic",
+      name: "cefic",
+      component: Cefic,
     },
     {
       path: "/",

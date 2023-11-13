@@ -11,8 +11,8 @@ import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 import PresentationCounter from "./Sections/PresentationCounter.vue";
 import PresentationInformation from "./Sections/PresentationInformation.vue";
 import CenteredBlogCard from "@/examples/cards/blogCards/CenteredBlogCard.vue";
-//images
-import vueMkHeader from "@/assets/img/site-editais.png";
+//SECULT
+import HeaderBanner from "./Sections/Secult/HeaderBanner.vue";
 
 
 const showNoticeOpen = ref(true);
@@ -179,23 +179,7 @@ onUnmounted(() => {
   </div>
 
   <Header>
-    <div class="page-header min-vh-75" :style="`background-image: url(${vueMkHeader})`" loading="lazy" style="">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 text-center mx-auto position-relative">
-            <!-- <h1
-              class="text-white pt-3 mt-n5 me-2"
-              :style="{ display: 'inline-block ' }"
-            >
-             Secult
-            </h1>
-            <p class="lead text-white px-5" :style="{ fontWeight: '300' }">
-              A Secretaria da Cultura do Ceará tem como missão executar, superintender e coordenar as atividades de proteção do patrimônio cultural do Ceará.
-            </p> -->
-          </div>
-        </div>
-      </div>
-    </div>
+    <HeaderBanner />
   </Header>
 
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
