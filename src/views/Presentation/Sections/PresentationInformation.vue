@@ -1,10 +1,11 @@
 <script setup>
-import {ref, onMounted, reactive} from "vue"
+import {ref, onMounted} from "vue"
 import RotatingCard from "../../../examples/cards/rotatingCards/RotatingCard.vue";
 import RotatingCardFront from "../../../examples/cards/rotatingCards/RotatingCardFront.vue";
 import RotatingCardBack from "../../../examples/cards/rotatingCards/RotatingCardBack.vue";
 import DefaultInfoCard from "../../../examples/cards/infoCards/DefaultInfoCard.vue";
 import moment from 'moment';
+import 'moment/dist/locale/pt-br'
 moment.locale('pt-br');
 
 const props = defineProps({
@@ -41,7 +42,7 @@ fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createT
 
 onMounted(() => {
   editalFind();
-  divNotice.value.scrollIntoView({ behavior: 'smooth' }); 
+  divNotice.value.scrollIntoView({ behavior: 'smooth' });
 })
 
 
