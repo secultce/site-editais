@@ -8,7 +8,7 @@ async function getNoticeOpen()
 
     // console.log(codeAgent)
     const dataNoticeOpen = [];
-    const period = `${'registrationFrom=LTE(2023-01-01))&registrationTo=GTE('+moment().format('YYYY-MM-DD')+')'}`;
+    const period = `${'registrationFrom=LTE(2024-01-01)&registrationTo=GTE('+moment().format('YYYY-MM-DD')+')'}`;
     const field = '@select=id,singleUrl,name,subTitle,type,shortDescription,terms';
 
     const dataF = await fetch(urlMata + 'api/opportunity/find/?&'+period+'&@order=createTimestamp%20DESC&'+field+'&@files=(avatar.avatarBig):url&@page=1&status=eq(1)&owner=IN('+codeAgent+')')
@@ -56,7 +56,7 @@ async function getNoticeClosed()
 
 async function getNoticePublic()
 {
-    const period = `${'registrationFrom=GT(2023-01-01)&registrationTo=GT('+moment().format('YYYY-MM-DD')+')'}`;
+    const period = `${'registrationFrom=GT('+moment().format('YYYY-MM-DD')+')&registrationTo=GT('+moment().format('YYYY-MM-DD')+')'}`;
     const field = '@select=id,singleUrl,name' //campos que deseja pelo api
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
     const dataClosed = await fetch(
