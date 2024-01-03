@@ -8,7 +8,7 @@ async function getNoticeOpen()
 
     // console.log(codeAgent)
     const dataNoticeOpen = [];
-    const period = `${'registrationFrom=LTE('+moment().format('YYYY-MM-DD')+')&registrationTo=GTE('+moment().format('YYYY-MM-DD')+')'}`;
+    const period = `${'registrationFrom=LTE(2023-01-01))&registrationTo=GTE('+moment().format('YYYY-MM-DD')+')'}`;
     const field = '@select=id,singleUrl,name,subTitle,type,shortDescription,terms';
 
     const dataF = await fetch(urlMata + 'api/opportunity/find/?&'+period+'&@order=createTimestamp%20DESC&'+field+'&@files=(avatar.avatarBig):url&@page=1&status=eq(1)&owner=IN('+codeAgent+')')
@@ -30,7 +30,7 @@ async function getNoticeOpen()
 
 async function getNoticeClosed()
 {
-    const period = `${'registrationTo=LTE('+moment().format('YYYY-MM-DD')+')'}` //menor que a data do dia
+    const period = `${'registrationTo=LTE(2023-01-01)'}` //menor que a data do dia
     const field = '@select=id,singleUrl,name,publishedRegistrations,shortDescription' //campos que deseja pelo api
     const year = moment().format("YYYY")+'-01-01,'+moment().format("YYYY")+'-12-31' //ano inteiro, variando somente o ano
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
@@ -56,7 +56,7 @@ async function getNoticeClosed()
 
 async function getNoticePublic()
 {
-    const period = `${'registrationFrom=GT('+moment().format('YYYY-MM-DD')+')&registrationTo=GT('+moment().format('YYYY-MM-DD')+')'}`;
+    const period = `${'registrationFrom=GT(2023-01-01)&registrationTo=GT('+moment().format('YYYY-MM-DD')+')'}`;
     const field = '@select=id,singleUrl,name' //campos que deseja pelo api
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
     const dataClosed = await fetch(
@@ -81,7 +81,7 @@ async function getNoticePublic()
 
 async function getNoticeProcess()
 {
-    const year = moment().format("YYYY")+'-01-01,'+moment().format("YYYY")+'-12-31' //ano inteiro, variando somente o ano
+    const year = '2023-01-01,'+moment().format("YYYY")+'-12-31' //ano inteiro, variando somente o ano
     const period = `${'registrationTo=LT('+moment().format('YYYY-MM-DD')+')'}`;
     const field = '@select=id,singleUrl,name,shortDescription,publishedRegistrations' //campos que deseja pelo api
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
