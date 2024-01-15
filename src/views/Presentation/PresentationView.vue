@@ -125,6 +125,7 @@ const getData = () => {
   countClosed.then(res => {
     state.noticeClosed = res
     state.countClosed = res.length
+
   })
     .catch(err => {
       console.log(err)
