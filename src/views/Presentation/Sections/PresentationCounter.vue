@@ -72,7 +72,7 @@ const showCategory = (value) => {
             <div class="col-md-3  position-relative">
               <DefaultCounterCard
                 color="success"
-                title="Encerrados"
+                title="Em Formalização"
                 description="Editais com resultado publicado."
                 :count="countClosed"
                 :duration="3000"
