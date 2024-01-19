@@ -42,20 +42,22 @@ async function getNoticeClosed()
     // )
     const year = '2023-01-01,'+moment().format("YYYY")+'-12-31' //ano inteiro, variando somente o ano
     const period = `${'registrationTo=LT('+moment().format('YYYY-MM-DD')+')'}`;
-    const field = '@select=id,publish_site,singleUrl,name,shortDescription,publishedRegistrations' //campos que deseja pelo api
+    const field = '@select=id,singleUrl,name,shortDescription,publishedRegistrations,publish_site' //campos que deseja pelo api
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT //Agentes dono das oportunidades
     const dataClosed = await fetch(
         import.meta.env.VITE_API_MAPA_URL + 
         'api/opportunity/find/?'+
         period + '&@order=createTimestamp%20DESC&'+
-        field + '&@files=(avatar.avatarBig):url,description&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')&publishedRegistrations=EQ(false)&publish_site=EQ(Sim)'
+        field + '&@files=(avatar.avatarBig):url,description&registrationFrom=BET('+year+')'+
+        '&owner=IN('+codeAgent+')&publishedRegistrations=EQ(false)&publish_site=EQ(Sim)'
     )
     .then(res => {
         return res.json()
     })
     .then(function(data) {
         //
-        return data
+        return data;
+
     })
     .catch(err => {
         console.log('getNoticeClosed ', err)
@@ -99,7 +101,8 @@ async function getNoticeProcess()
         import.meta.env.VITE_API_MAPA_URL + 
         'api/opportunity/find/?'+
         period + '&@order=createTimestamp%20DESC&'+
-        field + '&@files=(avatar.avatarBig):url,description&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')&publishedRegistrations=EQ(false)&publish_site=NULL()'
+        field + '&@files=(avatar.avatarBig):url,description&registrationFrom=BET('+year+')&owner=IN('+codeAgent+')'+
+        '&publishedRegistrations=EQ(false)&publish_site=NULL()'
     )
     .then(res => {
         return res.json()
