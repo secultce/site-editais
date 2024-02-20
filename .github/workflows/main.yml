@@ -1,4 +1,4 @@
-name: CI-CD
+name: CI
 on:
   push:
     branches: ["main"]
@@ -24,12 +24,3 @@ jobs:
           tags: |
             secultceara/editais:v${{ github.run_number }}
             secultceara/editais:latest
-            
-  CD:
-    needs: CI
-    runs-on: self-hosted
-    steps:
-      - name: Pull da imagem do dockerhub
-        run: docker pull secultceara/editais:latest
-      - name: Restart do docker-compose para atualizar o container com a nova imagem
-        run: cd /opt/docker/site-editais/ && docker-compose down && docker-compose up -d
