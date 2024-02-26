@@ -6,7 +6,7 @@ async function getNoticeOpen()
     const codeAgent = import.meta.env.VITE_ID_AGENTS_SECULT
     const urlMata = import.meta.env.VITE_API_MAPA_URL
     const dataNoticeOpen = [];
-    const period = `${'registrationFrom=GTE(2024-01-01)&registrationTo=LTE('+moment().format('YYYY-MM-DD')+')'}`;
+    const period = `${'registrationTo=GTE('+moment().format('YYYY-MM-DD')+')'}`;
     const field = '@select=id,singleUrl,name,subTitle,type,shortDescription,terms,publishedRegistrations,publish_site,registrationFrom,createTimestamp,registrationTo';
 
     const dataF = await fetch(urlMata + 'api/opportunity/find/?&'+period+'&@order=createTimestamp DESC&'
