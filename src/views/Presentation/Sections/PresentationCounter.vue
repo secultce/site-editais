@@ -6,6 +6,7 @@ defineProps({
   countClosed : Number,
   countPublic : Number,
   countProgess: Number,
+  totalActivePublicConsultations: Number,
 })
 
 const emit = defineEmits(['notice'])
@@ -22,9 +23,24 @@ const showCategory = (value) => {
   <section class="pt-3 pb-4" id="count-stats">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 z-index-2 border-radius-xl mx-auto py-3">
+        <div class="col-xxl-11 z-index-2 border-radius-xl mx-auto py-3">
           <div class="row">
-            <div class="col-md-3 position-relative">
+            <div class="col-sm-4 col-lg position-relative mb-4">
+              <DefaultCounterCard
+                color="success"
+                title="Consulta Pública"
+                description="Editais que estão em processo de construção."
+                :count="totalActivePublicConsultations"
+                :duration="3000"
+                divider="vertical"
+              />
+              <div class="d-flex justify-content-center  align-items-end ">
+                <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="showCategory('publicConsultation')">
+                  Ver editais
+                </a>
+             </div>              
+            </div>
+            <div class="col-sm-4 col-lg position-relative mb-4">
               <DefaultCounterCard
                 color="success"
                 title="Conhecimento público"
@@ -39,7 +55,7 @@ const showCategory = (value) => {
                 </a>
              </div>              
             </div>
-            <div class="col-md-3 position-relative">
+            <div class="col-sm-4 col-lg position-relative mb-4">
               <DefaultCounterCard
                 color="success"
                 title="Inscrições abertas"
@@ -54,7 +70,7 @@ const showCategory = (value) => {
                 </a>
              </div>
             </div>
-            <div class="col-md-3  position-relative">
+            <div class="col-sm-4 col-lg position-relative mb-4">
               <DefaultCounterCard
                 color="success"
                 title="Processo de seleção"
@@ -69,7 +85,7 @@ const showCategory = (value) => {
                 </a>
              </div>
             </div>
-            <div class="col-md-3  position-relative">
+            <div class="col-sm-4 col-lg position-relative mb-4">
               <DefaultCounterCard
                 color="success"
                 title="Em Formalização"
