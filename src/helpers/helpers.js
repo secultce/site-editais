@@ -56,6 +56,21 @@ async function getNoticeClosed()
     return dataClosed
 }
 
+async function getActivePublicConsultations() {
+    const data = await fetch(`${import.meta.env.VITE_API_MAPA_URL}consulta-publica/ativas`)
+        .then(res => {
+            return res.json()
+        })
+        .then(data => {
+            return data
+        })
+        .catch(err => {
+            console.log('getActivePublicConsultations', err)
+        })
+
+    return data
+}
+
 async function getNoticePublic()
 {
     const period = `${'registrationFrom=GT('+moment().format('YYYY-MM-DD')+')&registrationTo=GT('+moment().format('YYYY-MM-DD')+')'}`;
@@ -114,5 +129,6 @@ export default {
     getNoticeOpen,
     getNoticeClosed,
     getNoticePublic,
-    getNoticeProcess
+    getNoticeProcess,
+    getActivePublicConsultations,
 }
