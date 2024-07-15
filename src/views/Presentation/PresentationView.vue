@@ -233,7 +233,7 @@ onUnmounted(() => {
             <div class="row-card">
               <div class="card animate__animated animate__backInUp" :key="index">
                 <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
@@ -248,7 +248,7 @@ onUnmounted(() => {
             <div class="row-card">
               <div class="card" :key="index">
                 <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
@@ -277,7 +277,7 @@ onUnmounted(() => {
             <div class="row-card">
               <div class="card animate__animated animate__backInUp" :key="index">
                 <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
@@ -292,7 +292,7 @@ onUnmounted(() => {
             <div class="row-card">
               <div class="card animate__animated animate__backInUp" :key="index">
                 <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
