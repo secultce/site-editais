@@ -1,4 +1,5 @@
 <script setup>
+import avatarDefault from '../../../assets/img/avatar-default-opportunity.png'
 import {ref, onMounted} from "vue"
 import RotatingCard from "../../../examples/cards/rotatingCards/RotatingCard.vue";
 import RotatingCardFront from "../../../examples/cards/rotatingCards/RotatingCardFront.vue";
@@ -28,7 +29,7 @@ fetch(import.meta.env.VITE_API_MAPA_URL + 'api/opportunity/find/?&@order=createT
 .then(function(data) {
     //
     editalData.value = data[0]
-    featureCover.value = editalData.value['@files:avatar.avatarBig'].url;
+    featureCover.value = editalData.value['@files:avatar.avatarBig']?.url ?? avatarDefault;
     editalData.value.registrationFrom = moment(data[0].registrationFrom.date).format('llll');
     editalData.value.registrationTo = moment(data[0].registrationTo.date).format('llll');
     editalData.value.nameOwner = editalData.value.owner.name 

@@ -1,4 +1,5 @@
 <script setup>
+import avatarDefault from '../../assets/img/avatar-default-opportunity.png'
 import { onMounted, onUnmounted, reactive, ref } from "vue";
 import helpers from "../../helpers/helpers";
 //example components
@@ -231,8 +232,8 @@ onUnmounted(() => {
             class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
             <div class="row-card">
               <div class="card animate__animated animate__backInUp" :key="index">
-                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
@@ -246,8 +247,8 @@ onUnmounted(() => {
             class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
             <div class="row-card">
               <div class="card" :key="index">
-                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
@@ -275,8 +276,8 @@ onUnmounted(() => {
             class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
             <div class="row-card">
               <div class="card animate__animated animate__backInUp" :key="index">
-                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
@@ -290,8 +291,8 @@ onUnmounted(() => {
             class="col-md-4 z-index-2 border-radius-xl mx-auto py-3 mt-2">
             <div class="row-card">
               <div class="card animate__animated animate__backInUp" :key="index">
-                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig'].url"
-                  :title="item.name" :description="item.shortDescription" :href="item.singleUrl"
+                <CenteredBlogCard style="max-height: 700px;" :image="item['@files:avatar.avatarBig']?.url ?? avatarDefault"
+                  :title="item.name" :description="item.shortDescription ?? ''" :href="item.singleUrl"
                   @noticeClick="detailsEditImage" :id="item.id" />
                 <div class="card-body text-center">
                   <a type="button" class="btn btn-sm mb-0 mt-3 bg-gradient-success" @click="detailsEdit(item.id)">
