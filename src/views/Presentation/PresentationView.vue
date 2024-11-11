@@ -266,7 +266,7 @@ onUnmounted(() => {
               <div class="ps-0 ps-md-3 mt-3 mt-md-0">
                 <h5>{{ item.title }}</h5>
                 <p>{{ item.subtitle }}</p>
-                <a :href="item.googleDocsLink" class="icon-move-right text-success" target="_blank">
+                <a :href="item.google_docs_link" class="icon-move-right text-success" target="_blank">
                   Acessar Documento <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                 </a>
               </div>

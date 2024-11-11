@@ -1,41 +1,17 @@
-# Change Logs
+# Changelog
+Todas as mudanças relevantes serão documentadas nesse arquivo.
 
-## [2.0.0] 2022-08-19
+O formato é baseado no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0), e esse projeto adere ao [Semantic Versionning](https://semver.org/spec/v2.0.0.html).
 
-- Update the dependencies
-- Add new components
-- Add new built-in examples
-- Add new layouts
-- Change the base structure for entire project
-- Fix the issues
 
-## [1.2.2] 2019-12-13
+## [1.1.0] 2024-07-15 Jefferson Oliveira
+### Adicionado
 
-### Dependencies Updates
+ - Seção exclusiva para consulta pública
 
-- Updated all out of date dependencies from `package.json` file
-- The version is now `v1.2.2` to have the same versioning line with the PRO version of this product
+### Modificado
 
-## [1.2.0] 2019-07-19
+- Largura da imagens do card
+- Validação para descrição quando não existir
+- Imagem padrão quando não existir a imagem avatar
 
-### Updates
-
-- Vue Material updated to the latest release `v1.0.0-beta-11`
-- Vuejs updated to the latest release `v2.6.10`
-- Updated the rest of dependencies to the latest release
-
-## [1.1.0] 2019-01-22
-
-### Updates
-
-- Updated all dependencies to the last version
-
-## [1.0.1] 2019-01-22
-
-### Feature
-
-- button `Vue Material Kit Pro` from `index.vue` activated
-
-## [1.0.0] 2018-09-27
-
-### Initial Release
